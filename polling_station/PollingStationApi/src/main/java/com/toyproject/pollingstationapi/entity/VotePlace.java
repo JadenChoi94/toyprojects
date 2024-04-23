@@ -22,5 +22,5 @@ public class VotePlace {
     private String addressKor;
 
     @Column(nullable = false)
-    private Integer phone;
+    private String phone;
 }
