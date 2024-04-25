@@ -1,12 +1,12 @@
 package com.toyproject.pollingstationapi.controller;
 
+import com.toyproject.pollingstationapi.model.VotePlaceItem;
 import com.toyproject.pollingstationapi.model.VotePlaceRequest;
 import com.toyproject.pollingstationapi.service.VoteSerivce;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,5 +19,10 @@ public class VoteController {
         voteSerivce.setVotePlace(request);
 
         return "Success";
+    }
+
+    @GetMapping("/all")
+    public List<VotePlaceItem> getvotePlace() {
+        return voteSerivce.getVotePlaces();
     }
 }
